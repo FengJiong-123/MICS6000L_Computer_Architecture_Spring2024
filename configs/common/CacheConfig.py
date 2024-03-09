@@ -131,6 +131,10 @@ def config_cache(options, system):
         # Provide a clock for the L2 and the L1-to-L2 bus here as they
         # are not connected using addTwoLevelCacheHierarchy. Use the
         # same clock as the CPUs.
+
+        ##############################################
+        ## TODO: switch the replacement_policy object.
+        ##############################################
         system.l2 = l2_cache_class(
             clk_domain=system.cpu_clk_domain, **_get_cache_opts("l2", options),
             replacement_policy = LRURP()
@@ -145,6 +149,9 @@ def config_cache(options, system):
 
     for i in range(options.num_cpus):
         if options.caches:
+            ##############################################
+            ## TODO: switch the replacement_policy object.
+            ##############################################
             icache = icache_class(**_get_cache_opts("l1i", options), replacement_policy = LRURP())
             dcache = dcache_class(**_get_cache_opts("l1d", options), replacement_policy = LRURP())
 
