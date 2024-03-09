@@ -50,13 +50,20 @@ obtained from <https://resources.gem5.org>.
 More information on gem5 Resources can be found at
 <https://www.gem5.org/documentation/general_docs/gem5_resources/>.
 
+## Prepare the test case
+
+cp MICS6000_CA_test_cases.tar.gz /where/is/your/gem5/tests/test-progs/ \
+cd /where/is/your/gem5/tests/test-progs/ \
+tar -xvf MICS6000_CA_test_cases.tar.gz \
+cd -
 
 ## Run Simple Example
 
 build/X86/gem5.opt -d bw_mem \ 
 configs/deprecated/example/se.py \
 --cmd tests/test-progs/bwmem/threads --options="1M 1 1 rd" \
---mem-size=4GB --cpu-type=O3CPU --caches --l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB \
+--mem-size=4GB --cpu-type=O3CPU --caches \
+--l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB \
 
 * The basic binary of gem5 is gem5.opt. -d means the output directory of gem5. The default directory is m5out.
   You can obtain the stats.txt and debug info(if you have announced) in this directory.
