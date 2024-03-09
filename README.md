@@ -20,7 +20,7 @@ protobuf if you want trace capture and playback support. Please see
 concerning the minimum versions of these tools.
 
 Here we just simply build the gem5 on X86 Arch for your programming exercise.
-The command is:
+The command is: \
 scons build/X86/gem5.opt -j 16
 
 This progress is really time-consuming if it's the first compilation.
@@ -56,7 +56,7 @@ More information on gem5 Resources can be found at
 build/X86/gem5.opt -d bw_mem \ 
 configs/deprecated/example/se.py \
 --cmd tests/test-progs/bwmem/threads --options="1M 1 1 rd" \
---mem-size=4GB --cpu-type=O3CPU --caches --l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB
+--mem-size=4GB --cpu-type=O3CPU --caches --l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB \
 
 * The basic binary of gem5 is gem5.opt. -d means the output directory of gem5. The default directory is m5out.
   You can obtain the stats.txt and debug info(if you have announced) in this directory.
@@ -72,42 +72,42 @@ configs/deprecated/example/se.py \
 
 ## Run Spec2017
 
-* perlbench:
-cd tests/test-progs/perlbench
+* perlbench: \
+cd tests/test-progs/perlbench \
 ../../../build/X86/gem5.opt -d ../../../perlbench \
 ../../../configs/deprecated/example/se.py \
 --cmd ./perlbench_r  --options="-I./lib checkspam.pl 2500 5 25 11 150 1 1 1 1" \
 --mem-size=4GB --cpu-type=O3CPU --caches --l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB \
---restore-simpoint-checkpoint --checkpoint-dir=perl_r_1_init/ -r 12
+--restore-simpoint-checkpoint --checkpoint-dir=perl_r_1_init/ -r 12 \
 cd -
 
-* mcf:
+* mcf: \
 build/X86/gem5.opt -d mcf \
 configs/deprecated/example/se.py \
 --cmd tests/test-progs/mcf/mcf_r \
 --options="tests/test-progs/mcf/inp.in" \
 --mem-size=4GB --cpu-type=O3CPU --caches --l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB \
---restore-simpoint-checkpoint --checkpoint-dir=tests/test-progs/mcf/mcf_r_init/ -r 8
+--restore-simpoint-checkpoint --checkpoint-dir=tests/test-progs/mcf/mcf_r_init/ -r 8 \
 
-* omnetpp:
-cd tests/test-progs/omnetpp
+* omnetpp: \
+cd tests/test-progs/omnetpp \
 ../../../build/X86/gem5.opt -d ../../../omnetpp \
 ../../../configs/deprecated/example/se.py \
 --cmd ./omnetpp_r  --options="-c General -r 0" \
 --mem-size=4GB --cpu-type=O3CPU --caches --l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB \
---restore-simpoint-checkpoint --checkpoint-dir=omp_r_init/ -r 7
+--restore-simpoint-checkpoint --checkpoint-dir=omp_r_init/ -r 7 \
 cd -
 
-* deepsjeng:
-cd tests/test-progs/deepsjeng
+* deepsjeng: \
+cd tests/test-progs/deepsjeng \
 ../../../build/X86/gem5.opt -d ../../../deepsjeng \
 ../../../configs/deprecated/example/se.py \
 --cmd ./deepsjeng_r  --options="ref.txt" \
 --mem-size=4GB --cpu-type=O3CPU --caches --l2cache --l1d_size=64kB --l1i_size=64kB --l2_size=1MB \
---restore-simpoint-checkpoint --checkpoint-dir=deep_r_init/ -r 3
+--restore-simpoint-checkpoint --checkpoint-dir=deep_r_init/ -r 3 \
 cd -
 
-* named:
+* named: \
 build/X86/gem5.opt -d named \
 configs/deprecated/example/se.py \
 --cmd tests/test-progs/named/namd_r \
